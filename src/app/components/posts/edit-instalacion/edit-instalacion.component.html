@@ -1,0 +1,193 @@
+<div class="container" *ngIf="instalacion">
+  <div class="row">
+    <div class="col-xl-4 order-xl-2">
+      <div class="card card-profile">
+        <img
+          src="../assets/img/theme/img-1-1000x600.jpg"
+          alt="Image placeholder"
+          class="card-img-top"
+        />
+        <div class="row justify-content-center">
+          <div class="col-lg-3 order-lg-2">
+            <div class="card-profile-image">
+              <a href="#">
+                <img
+                  src="../assets/img/theme/team-4.jpg"
+                  class="rounded-circle"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+          <div class="d-flex justify-content-between">
+            <a href="#" class="btn btn-sm btn-info mr-4">AAAAA</a>
+            <a href="#" class="btn btn-sm btn-default float-right">AAAA</a>
+          </div>
+        </div>
+        <div class="card-body pt-0">
+          <div class="text-center">
+            <h5 class="h4 mt-4">
+              <i class="ni business_briefcase-24 mr-2"></i>Creado por:
+            </h5>
+            <div>
+              <i class="ni education_hat mr-2"></i>{{instalacion.cliente}}
+            </div>
+            <div class="h5 mt-4">
+              <i class="ni business_briefcase-24 mr-2"></i>Fecha de creación
+            </div>
+            <div><i class="ni education_hat mr-2"></i>15 de abril del 2020</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-8 order-xl-1">
+      <div class="card">
+        <div class="card-header">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Datos de la instalación</h3>
+            </div>
+            <div class="col-4 text-right">
+              <a href="#!" class="btn btn-sm btn-primary">Guardar</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form>
+            <h6 class="heading-small text-muted mb-4">
+              Información del usuario
+            </h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-username"
+                      >Número de contrato</label
+                    >
+                    <input
+                      type="text"
+                      id="input-username"
+                      class="form-control"
+                      [value]="instalacion.nContrato"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-email"
+                      >Identidad</label
+                    >
+                    <input type="text" id="input-email" class="form-control" [value]="instalacion.identidad" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-first-name"
+                      >Cliente</label
+                    >
+                    <input
+                      type="text"
+                      id="input-first-name"
+                      class="form-control"
+                      [value]="instalacion.cliente"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-last-name"
+                      >Dirección IP Asignada</label
+                    >
+                    <input
+                      type="text"
+                      id="input-last-name"
+                      class="form-control"
+                      [value]="instalacion.direccionIP"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="my-4" />
+            <!-- Address -->
+            <h6 class="heading-small text-muted mb-4">
+              Información de contacto
+            </h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-address"
+                      >Dirección</label
+                    >
+                    <input
+                      id="input-address"
+                      class="form-control"
+                      type="text"
+                      [value]="instalacion.direccion"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-city"
+                      >Departamento</label
+                    >
+                    <input type="text" id="input-city" class="form-control" [value]="instalacion.departamento" />
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-country"
+                      >Teléfono</label
+                    >
+                    <input
+                      type="text"
+                      id="input-country"
+                      class="form-control"
+                      [value]="instalacion.telefono"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">Estado</label>
+                    <select class="form-control" id="exampleFormControlSelect1" [value]="instalacion.estado">
+                      <option>Pendiente</option>
+                      <option>En desarrollo</option>
+                      <option>Finalizado</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="my-4" />
+            <!-- Description -->
+            <h6 class="heading-small text-muted mb-4">Información adicional</h6>
+            <div class="pl-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">Equipos asignados</label>
+                <textarea rows="4" class="form-control" [value]="instalacion.equipos_asignados"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">Comentarios</label>
+                <textarea rows="4" class="form-control" [value]="instalacion.comentarios"></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="container-spinner">
+      <h1>CARGANDO...</h1>
+  </div>
+</ng-template>

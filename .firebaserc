@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "usuarios-235c9": {
+      "hosting": {
+        "MonitoreoApp": [
+          "usuarios-235c9"
+        ]
+      }
+    }
+  }
+}

@@ -42,28 +42,28 @@
               </tr>
             </thead>
             <tbody class="list">
-              <tr>
+              <tr *ngFor="let instalacion of instalaciones">
                 <th scope="row">
                   <div class="media align-items-center">
                     <div class="media-body">
                       <span class="name mb-0 text-sm"
-                        >Fernando Elias Mendoza</span
+                        >{{ instalacion.cliente }}</span
                       >
                     </div>
                   </div>
                 </th>
-                <td class="budget">192.168.0.1</td>
+                <td class="budget">{{ instalacion.direccionIP }}</td>
                 <td>
-                  <span class="status">Col. Celeo Gonzales Bloque G2</span>
+                  <span class="status">{{ instalacion.departamento }}</span>
                 </td>
                 <td>
                   <span class="badge badge-dot mr-4">
                     <i class="bg-warning"></i>
-                    <span class="status">Pendiente</span>
+                    <span class="status">{{ instalacion.estado }}</span>
                   </span>
                 </td>
                 <td>
-                  <h4>Hola</h4>
+                  <h4> %DATE%</h4>
                 </td>
                 <td class="text-right">
                   <div class="dropdown">
@@ -80,95 +80,7 @@
                     <div
                       class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
                     >
-                      <a class="dropdown-item" href="#">Ver</a>
-                      <a class="dropdown-item" href="#">Eliminar</a>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <div class="media align-items-center">
-                    <div class="media-body">
-                      <span class="name mb-0 text-sm"
-                        >Fernando Elias Mendoza</span
-                      >
-                    </div>
-                  </div>
-                </th>
-                <td class="budget">192.168.0.1</td>
-                <td>
-                  <span class="status">Col. Celeo Gonzales Bloque G2</span>
-                </td>
-                <td>
-                  <span class="badge badge-dot mr-4">
-                    <i class="bg-warning"></i>
-                    <span class="status">Pendiente</span>
-                  </span>
-                </td>
-                <td>
-                  <h4>Hola</h4>
-                </td>
-                <td class="text-right">
-                  <div class="dropdown">
-                    <a
-                      class="btn btn-sm btn-icon-only text-light"
-                      href="#"
-                      role="button"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <i class="fas fa-ellipsis-v"></i>
-                    </a>
-                    <div
-                      class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
-                    >
-                      <a class="dropdown-item" href="#">Ver</a>
-                      <a class="dropdown-item" href="#">Eliminar</a>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <div class="media align-items-center">
-                    <div class="media-body">
-                      <span class="name mb-0 text-sm"
-                        >Fernando Elias Mendoza</span
-                      >
-                    </div>
-                  </div>
-                </th>
-                <td class="budget">192.168.0.1</td>
-                <td>
-                  <span class="status">Col. Celeo Gonzales Bloque G2</span>
-                </td>
-                <td>
-                  <span class="badge badge-dot mr-4">
-                    <i class="bg-success"></i>
-                    <span class="status">Pendiente</span>
-                  </span>
-                </td>
-                <td>
-                  <h4>Hola</h4>
-                </td>
-                <td class="text-right">
-                  <div class="dropdown">
-                    <a
-                      class="btn btn-sm btn-icon-only text-light"
-                      href="#"
-                      role="button"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <i class="fas fa-ellipsis-v"></i>
-                    </a>
-                    <div
-                      class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
-                    >
-                      <a class="dropdown-item" href="#">Ver</a>
+                      <a class="dropdown-item" [routerLink]="['/instalacion', instalacion.id]">Ver</a>
                       <a class="dropdown-item" href="#">Eliminar</a>
                     </div>
                   </div>
@@ -176,7 +88,7 @@
               </tr>
             </tbody>
           </table>
-        </div>
+        </div>    
         <!-- Card footer -->
         <div class="card-footer py-4">
           <nav aria-label="...">
@@ -239,22 +151,24 @@
         </div>
 
         <div class="modal-body">
-          <form>
+          <form [formGroup]="nuevaInstalacion" (ngSubmit)="agregarNuevaInstalacion(nuevaInstalacion.value)">
             <div class="form-group">
               <div class="row">
                 <div class="col">
                   <label for="exampleFormControlInput1">N. Identidad</label>
                   <input
-                    type="email"
+                    type="text"
                     class="form-control"
+                    formControlName="identidad"
                     id="exampleFormControlInput1"
                   />
                 </div>
                 <div class="col">
                   <label for="exampleFormControlInput1">N. Contrato</label>
                   <input
-                    type="email"
+                    type="text"
                     class="form-control"
+                    formControlName="nContrato"
                     id="exampleFormControlInput1"
                   />
                 </div>
@@ -263,48 +177,54 @@
             <div class="form-group">
               <label for="exampleFormControlInput1">Cliente</label>
               <input
-                type="email"
+                type="text"
                 class="form-control"
+                formControlName="cliente"
                 id="exampleFormControlInput1"
               />
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">Direccion IP</label>
               <input
-                type="email"
+                type="text"
                 class="form-control"
+                formControlName="direccionIP"
                 id="exampleFormControlInput1"
               />
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">Teléfono</label>
               <input
-                type="email"
+                type="text"
                 class="form-control"
+                formControlName="telefono"
                 id="exampleFormControlInput1"
               />
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">Departamento</label>
               <input
-                type="email"
+                type="text"
                 class="form-control"
+                formControlName="departamento"
                 id="exampleFormControlInput1"
               />
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">Dirección</label>
               <input
-                type="email"
+                type="text"
                 class="form-control"
+                formControlName="direccion"
                 id="exampleFormControlInput1"
               />
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">Equipos asignados</label>
               <input
-                type="email"
+                type="text"
                 class="form-control"
+                formControlName="equipos_asignados"
                 id="exampleFormControlInput1"
               />
             </div>
@@ -312,23 +232,25 @@
               <label for="exampleFormControlTextarea1">Comentarios</label>
               <textarea
                 class="form-control"
+                formControlName="comentarios"
                 id="exampleFormControlTextarea1"
                 rows="3"
               ></textarea>
             </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-white">Guardar</button>
+              <button
+                type="button"
+                class="btn btn-link text-white ml-auto"
+                data-dismiss="modal"
+              >
+                Cerrar
+              </button>
+            </div>
           </form>
         </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-white">Guardar</button>
-          <button
-            type="button"
-            class="btn btn-link text-white ml-auto"
-            data-dismiss="modal"
-          >
-            Cerrar
-          </button>
-        </div>
+        
       </div>
     </div>
   </div>

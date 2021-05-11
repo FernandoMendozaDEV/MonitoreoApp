@@ -12,6 +12,20 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
 import { InstalacionesComponent } from './components/pages/instalaciones/instalaciones.component';
 import { VisitasComponent } from './components/pages/visitas/visitas.component';
 import { RetirosComponent } from './components/pages/retiros/retiros.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { EditInstalacionComponent } from './components/posts/edit-instalacion/edit-instalacion.component';
+import { EditVisitaComponent } from './components/posts/edit-visita/edit-visita.component';
+import { EditRetiroComponent } from './components/posts/edit-retiro/edit-retiro.component';
+
+//FIREBASE
+import { AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFireStorageModule, AngularFireStorage} from '@angular/fire/storage';
+import { AngularFireModule} from '@angular/fire/';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+import { environment } from 'src/environments/environment';
+import { ReactiveFormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,11 +36,21 @@ import { RetirosComponent } from './components/pages/retiros/retiros.component';
     DashboardComponent,
     InstalacionesComponent,
     VisitasComponent,
-    RetirosComponent
+    RetirosComponent,
+    LoginComponent,
+    EditInstalacionComponent,
+    EditVisitaComponent,
+    EditRetiroComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
