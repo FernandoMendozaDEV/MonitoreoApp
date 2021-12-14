@@ -33,4 +33,234 @@
       </div>
     </div>
   </div>
-</div>
+
+
+ 
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <!-- Card header -->
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col-10">
+                <h3 class="mb-0">Visitas anunciadas</h3>
+              </div>
+              <div class="col-2">
+                <button
+                  type="button"
+                  class="btn btn-primary btn-icon mb-1"
+                  data-toggle="modal"
+                  data-target="#modal-notification"
+                >
+                  <span class="btn-inner--icon"
+                    ><i class="ni ni-fat-add"></i
+                  ></span>
+                  <span class="btn-inner--text">Nuevo</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Light table -->
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" class="sort" data-sort="name">N. Identidad</th>
+                  <th scope="col" class="sort" data-sort="name">Nombre</th>
+                  <th scope="col" class="sort" data-sort="budget">
+                    Apellido
+                  </th>
+                  <th scope="col" class="sort" data-sort="status">
+                    Empresa
+                  </th>
+  
+                  <th scope="col" class="sort" data-sort="completion">Area</th>
+                  <th scope="col" class="sort">Encargado</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody class="list">
+                <tr *ngFor="let anuncio of anuncios">
+                  <th scope="row">
+                    <div class="media align-items-center">
+                      <div class="media-body">
+                        <span class="name mb-0 text-sm"
+                          >{{ anuncio.identidad }}</span
+                        >
+                      </div>
+                    </div>
+                  </th>
+                  <td class="budget">{{ anuncio.nombre }}</td>
+                  <td>
+                    <span class="status">{{ anuncio.apellido }}</span>
+                  </td>
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <i class="bg-warning"></i>
+                      <span class="status">{{ anuncio.empresa }}</span>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <i class="bg-warning"></i>
+                      <span class="status">{{ anuncio.area }}</span>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <i class="bg-warning"></i>
+                      <span class="status">{{ anuncio.encargado }}</span>
+                    </span>
+                  </td>
+                  <td class="text-right">
+                    <div class="dropdown">
+                      <a
+                        class="btn btn-sm btn-icon-only text-light"
+                        href="#"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        <i class="fas fa-ellipsis-v"></i>
+                      </a>
+                      <div
+                        class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
+                      >
+                        <a class="dropdown-item" href="#">Ingresar</a>
+                        <a class="dropdown-item" href="#">Eliminar</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>    
+          <!-- Card footer -->
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div
+      class="modal fade"
+      id="modal-notification"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modal-notification"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-danger modal-dialog-centered modal-"
+        role="document"
+      >
+        <div class="modal-content bg-gradient-danger">
+          <div class="modal-header">
+            <h6 class="modal-title" id="modal-title-notification">
+              Tu atención es requerida
+            </h6>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+  
+          <div class="modal-body">
+            <form [formGroup]="nuevoAnuncio" (ngSubmit)="agregarNuevoAnuncio(nuevoAnuncio.value)">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col">
+                    <label for="exampleFormControlInput1">N. Identidad</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="identidad"
+                      id="exampleFormControlInput1"
+                    />
+                  </div>
+                  <div class="col">
+                    <label for="exampleFormControlInput1">Nombre</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="nombre"
+                      id="exampleFormControlInput1"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Apellido</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="apellido"
+                  id="exampleFormControlInput1"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Empresa</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="empresa"
+                  id="exampleFormControlInput1"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Area</label>
+                <select class="form-control" formControlName="area">
+                  <option value="Consultorios">Consultorios</option>
+                  <option value="Emergencias 1">Emergencias 1</option>
+                  <option value="Emergencias 2">Emergencias 2</option>
+                  <option value="Hospitalización">Hospitalización</option>
+                  <option value="Administracion">Administracion</option>
+                  <option value="Recuperacion">Recuperación</option>
+                  <option value="UCI COVID">UCI COVID</option>
+                  <option value="UCI NO COVID">UCI NO COVID</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Encargado</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="encargado"
+                  id="exampleFormControlInput1"
+                />
+              </div>
+              
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Comentarios</label>
+                <textarea
+                  class="form-control"
+                  formControlName="comentarios"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-white">Guardar</button>
+                <button
+                  type="button"
+                  class="btn btn-link text-white ml-auto"
+                  data-dismiss="modal"
+                >
+                  Cerrar
+                </button>
+              </div>
+            </form>
+          </div>
+  
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
