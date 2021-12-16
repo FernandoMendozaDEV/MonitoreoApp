@@ -2,11 +2,11 @@
   <div class="row">
     <div class="card ml-3 w-auto" >
       <div class="card-body">
-        <h3 class="card-title">Bienvenido FERNANDO ELIAS MENDOZA LOPEZ</h3>
+        <h3 class="card-title">Bienvenido</h3>
         <p class="card-text">
-          Desde esta pagina podras realizar todas las programaciones del
-          departamento de monitoreo, incluyendo instalaciones, retiros de
-          equipos o visitas pendientes a clientes.
+          Desde esta pagina podras realizar todas las gestiones del
+          control de acceso hospitalario, mediante el cual podras registrar los
+          ingresos que se esten llevando a cabo en las distintas areas.
         </p>
 
         <p class="card-text">
@@ -15,25 +15,28 @@
         </p>
 
         <p class="card-text">
-            <strong>Instalaciones:</strong>
-            En esta sección puedes programar todas las instalaciones de los clientes nuevos
-            que formarán parte de la empresa.
+            <strong>Dashboard:</strong>
+            En esta sección puedes visualizar las areas disponibles del hospital, asi como 
+            el personal anunciado que tiene alguna visita pendiente.
         </p>
         <p class="card-text">
-            <strong>Retiros:</strong>
-            En esta sección puedes programar todos los retiros pendientes de equipos de los clientes
-            que dejarán de utilizar el servicio.
+            <strong>Ingresos:</strong>
+            En esta sección puedes llenar el formulario de ingreso con la informacion solicitada
+            del visitante y el area a la que se dirige.
 
         </p>
         <p class="card-text">
-            <strong>Visitas pendientes:</strong>
-            Selecciona la opcion si lo que deseas es agendar visitas pendientes a clientes que presentan
-            problemas de red o mantenimiento con sus equipos.
+            <strong>Historial:</strong>
+            Selecciona la opcion si lo que deseas es agendar visualizar un historial de todo el registro
+            de acceso que se ha venido almancenando. Estos datos no pueden ser eliminados.
         </p>
       </div>
     </div>
   </div>
 
+  <label>{{this.i}}</label>
+
+  <button (click)="array()">CLICK</button>
 
  
     <div class="row">
@@ -84,7 +87,7 @@
                   <th scope="row">
                     <div class="media align-items-center">
                       <div class="media-body">
-                        <span class="name mb-0 text-sm"
+                        <span class="name mb-0 text-sm" 
                           >{{ anuncio.identidad }}</span
                         >
                       </div>
@@ -127,8 +130,7 @@
                       <div
                         class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
                       >
-                        <a class="dropdown-item" href="#">Ingresar</a>
-                        <a class="dropdown-item" href="#">Eliminar</a>
+                        <a class="dropdown-item" (click)="eliminarAnuncio(anuncio)">Gestionar</a>
                       </div>
                     </div>
                   </td>

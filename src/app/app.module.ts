@@ -26,6 +26,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { ReactiveFormsModule} from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     EditInstalacionComponent,
     EditVisitaComponent,
-    EditRetiroComponent
+    EditRetiroComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

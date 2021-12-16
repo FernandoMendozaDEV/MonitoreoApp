@@ -18,16 +18,6 @@ export class EditInstalacionComponent implements OnInit {
               private monitoreoService: MonitoreoService) { }
 
   ngOnInit() {
-    //const idPost = this.route.snapshot.params.id;
-    //this.instalacion = this.monitoreoService.verInstalacion(idPost);
-    this.route.params
-    .subscribe( parametros => {
-      this.monitoreoService.verInstalacion(parametros['id'])
-      .subscribe( (instalacion: Instalacion) => {
-        this.id = parametros['id'];
-        this.instalacion = instalacion;
-      });
-    })
   }
 
 }
