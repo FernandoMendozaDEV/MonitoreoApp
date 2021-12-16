@@ -1,3 +1,4 @@
+import { contador } from './models/visita.interface';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Anuncio } from './models/anuncio.interface';
@@ -15,12 +16,14 @@ export class MonitoreoService {
   private ingresosCollection: AngularFirestoreCollection<Ingreso>;
   private anunciosTempCollection: AngularFirestoreCollection<Anuncio>;
   private ingresosTempCollection: AngularFirestoreCollection<Ingreso>;
+  private contadores: AngularFirestoreCollection;
 
   constructor(private afs: AngularFirestore) { 
     this.anunciosCollection      = afs.collection<Anuncio>('Anuncios');
     this.ingresosCollection      = afs.collection<Ingreso>('Ingresos');
     this.anunciosTempCollection  = afs.collection<Anuncio>('AnunciosTemp');
     this.ingresosTempCollection  = afs.collection<Ingreso>('IngresosTemp');
+    this.contadores              = afs.collection<contador>('contadores');
   }
 
   guardarNuevoIngreso(ingreso: Ingreso){
@@ -75,6 +78,10 @@ export class MonitoreoService {
       fecha_creado: new Date()
     };
     return this.anunciosTempCollection.add(anuncioObj);
+  }
+
+  obtenerContador(){
+    return this.afs.collection('Contadores').snapshotChanges();
   }
 
   obtenerAnuncios(){

@@ -28,6 +28,7 @@ import { ReactiveFormsModule} from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
 
+
 @NgModule({
   declarations: [
     AppComponent,

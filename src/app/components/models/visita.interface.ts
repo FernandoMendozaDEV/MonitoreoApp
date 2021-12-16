@@ -1,12 +1,11 @@
 
-export interface Visita {
-    cliente     : string;
-    direccionIP : string;
-    prioridad   : string;
-    direccion   : string;
-    departamento: string;
-    estado      : string;
-    descripcion : string;
-    creado      : string;
-    fecha_creado: string;
+export interface contador {
+    consultorios: any;
+    emergencias_1:any;
+    emergencias_2:any;
+    hospitalizacion:any;
+    mantenimiento:any;
+    recuperacion:any;
+    uci_covid:any;
+    uci_no_covid:any;
 }

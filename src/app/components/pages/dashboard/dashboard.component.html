@@ -1,4 +1,157 @@
 <div class="container">
+  <div class="container" >
+    <!-- Card stats -->
+    <div class="row mt-3">
+      <div class="col-xl-3 col-md-6">
+        <div class="card card-stats">
+          <!-- Card body -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">Consultorios</h5>
+                <span class="h2 font-weight-bold mb-0"></span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                  <i class="ni ni-active-40"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <div class="card card-stats">
+          <!-- Card body -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">Emergencias 1</h5>
+                <span class="h2 font-weight-bold mb-0"></span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                  <i class="ni ni-chart-pie-35"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <div class="card card-stats">
+          <!-- Card body -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">Emergencias 2</h5>
+                <span class="h2 font-weight-bold mb-0">924</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                  <i class="ni ni-money-coins"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <div class="card card-stats">
+          <!-- Card body -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">Hospitalizacion</h5>
+                <span class="h2 font-weight-bold mb-0">49,65%</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                  <i class="ni ni-chart-bar-32"></i>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-xl-3 col-md-6">
+        <div class="card card-stats">
+          <!-- Card body -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">Mantenimiento</h5>
+                <span class="h2 font-weight-bold mb-0">350,897</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                  <i class="ni ni-active-40"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <div class="card card-stats">
+          <!-- Card body -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">Recuperacion</h5>
+                <span class="h2 font-weight-bold mb-0"></span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                  <i class="ni ni-chart-pie-35"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <div class="card card-stats">
+          <!-- Card body -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">UCI COVID</h5>
+                <span class="h2 font-weight-bold mb-0">924</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                  <i class="ni ni-money-coins"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <div class="card card-stats">
+          <!-- Card body -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">UCI NO COVID</h5>
+                <span class="h2 font-weight-bold mb-0">49,65%</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                  <i class="ni ni-chart-bar-32"></i>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
   <div class="row">
     <div class="card ml-3 w-auto" >
       <div class="card-body">
@@ -34,10 +187,12 @@
     </div>
   </div>
 
-  <label>{{this.i}}</label>
+  
 
-  <button (click)="array()">CLICK</button>
+  <label>{{this.a}}</label>
 
+  <button (click)="sumar()" >CLICK</button>
+  <button routerLink="/dashboard">Actualizar</button>
  
     <div class="row">
       <div class="col">
@@ -138,6 +293,79 @@
               </tbody>
             </table>
           </div>    
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" class="sort" data-sort="name">N. Identidad</th>
+                  <th scope="col" class="sort" data-sort="name">Nombre</th>
+                  <th scope="col" class="sort" data-sort="budget">
+                    Apellido
+                  </th>
+                  <th scope="col" class="sort" data-sort="status">
+                    Empresa
+                  </th>
+  
+                  <th scope="col" class="sort" data-sort="completion">Area</th>
+                  <th scope="col" class="sort">Encargado</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody class="list">
+                <tr *ngFor="let contador of contadores">
+                  <th scope="row">
+                    <div class="media align-items-center">
+                      <div class="media-body">
+                        <span class="name mb-0 text-sm" 
+                          >{{ contador.Consultorios }}</span
+                        >
+                      </div>
+                    </div>
+                  </th>
+                  <td class="budget">{{ contador.Hospitalizacion }}</td>
+                  <td>
+                    <span class="status">{{ contador.consultorio }}</span>
+                  </td>
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <i class="bg-warning"></i>
+                      <span class="status">{{ contador.consultorio }}</span>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <i class="bg-warning"></i>
+                      <span class="status">{{ contador.consultorio }}</span>
+                    </span>
+                  </td>
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <i class="bg-warning"></i>
+                      <span class="status">{{ contador.consultorio }}</span>
+                    </span>
+                  </td>
+                  <td class="text-right">
+                    <div class="dropdown">
+                      <a
+                        class="btn btn-sm btn-icon-only text-light"
+                        href="#"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        <i class="fas fa-ellipsis-v"></i>
+                      </a>
+                      <div
+                        class="dropdown-menu dropdown-menu-right dropdown-menu-arrow"
+                      >
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>  
           <!-- Card footer -->
           
         </div>
@@ -266,3 +494,9 @@
     </div>
   </div>
   
+  <div class="container">
+    
+  <div style="width:100%;">
+    <canvas id="myChart" width="700" height="250" #mychart></canvas>
+  </div>
+  </div>
