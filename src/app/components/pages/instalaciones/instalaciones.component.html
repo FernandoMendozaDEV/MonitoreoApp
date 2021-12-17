@@ -33,7 +33,7 @@
           </div>
         </div>
         <!-- Light table -->
-        <div class="table-responsive">
+        <div class="table-responsive" style="height: 600px;">
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
@@ -51,7 +51,7 @@
               </tr>
             </thead>
             <tbody class="list">
-              <tr *ngFor="let ingreso of ingresos | filter: filterIngreso">
+              <tr *ngFor="let ingreso of monitoreoService.ingreso | filter: filterIngreso">
                 <th scope="row">
                   <div class="media align-items-center">
                     <div class="media-body">

@@ -23,13 +23,9 @@ export class DashboardComponent implements OnInit {
   public i;
   public a=0;
 
-  sumar(){
-    this.a = this.a+1;
-  }
-
-
-  constructor( private monitoreoService : MonitoreoService) { }
-
+  
+  constructor( public monitoreoService : MonitoreoService) { }
+  
   public nuevoAnuncio = new FormGroup({
     identidad  : new FormControl('', Validators.required),
     nombre    : new FormControl('', Validators.required),
@@ -44,8 +40,15 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.obtenerAnuncios();
     this.obtenerContador();
-  //  this.array();
+    this.array();
   }
+
+
+
+  show(){
+    console.log();
+  }
+
   canvas: any;
   ctx: any;
   @ViewChild('mychart') mychart:any;
@@ -59,23 +62,27 @@ export class DashboardComponent implements OnInit {
       data: {
           datasets: [{
               label: 'Current Vallue',
-              data: [this.a, 20, 40, 50],
+              data: [100, 50],
               backgroundColor: "rgb(115 185 243 / 65%)",
               borderColor: "#007ee7",
               fill: true,
           },
           ],
-          labels: ['Registros', 'February 2019', 'March 2019', 'April 2019']
+          labels: ['Anuncios', 'Ingresos']
       },
   });
   }
 
- // array(){
-  //  var i;
-  //  for(i=0;i<this.anuncios.length;i++){
-   //   this.a = i;
-   // }
- // }
+  array(){
+
+    console.log(this.anuncios.length);
+    var i;
+  for(i=0;i<this.anuncios.length;i++){
+      this.a = this.a + i;
+   }
+
+   console.log('Hay', this.a,'arreglo');
+ }
 
   
 

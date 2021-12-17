@@ -1,14 +1,24 @@
 import { contador } from './models/visita.interface';
 import { Injectable } from '@angular/core';
+
+
+import { HttpClient } from '@angular/common/http';
+
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Anuncio } from './models/anuncio.interface';
 import { Observable } from 'rxjs';
 import { Ingreso } from './models/ingreso.interface';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class MonitoreoService {
+
+
+  public ingreso: Ingreso[] = [];
+  public anuncio: Anuncio[] = [];
+
 
   estado : string = 'Pendiente';
 
@@ -17,26 +27,61 @@ export class MonitoreoService {
   private anunciosTempCollection: AngularFirestoreCollection<Anuncio>;
   private ingresosTempCollection: AngularFirestoreCollection<Ingreso>;
   private contadores: AngularFirestoreCollection;
+  static anuncio: any;
 
-  constructor(private afs: AngularFirestore) { 
+  constructor(private afs: AngularFirestore, 
+              private http: HttpClient ) { 
+
     this.anunciosCollection      = afs.collection<Anuncio>('Anuncios');
     this.ingresosCollection      = afs.collection<Ingreso>('Ingresos');
     this.anunciosTempCollection  = afs.collection<Anuncio>('AnunciosTemp');
     this.ingresosTempCollection  = afs.collection<Ingreso>('IngresosTemp');
     this.contadores              = afs.collection<contador>('contadores');
+
+    this.mostrarIngresos();
+    this.mostrarAnuncios();
+  }
+
+  
+
+
+  mostrarIngresos(){
+    return new Promise<void>( (resolve, reject) => {
+      this.http.get('https://usuarios-235c9.firebaseio.com/ingresos.json')
+      .subscribe((resp:Ingreso[]) =>{
+        this.ingreso = resp;
+        resolve();
+  
+      });
+    });
+  }
+
+  mostrarAnuncios(){
+    return new Promise<void>( (resolve, reject) => {
+      this.http.get('https://usuarios-235c9.firebaseio.com/anuncios.json')
+      .subscribe((resp:Anuncio[]) =>{
+        this.anuncio = resp;
+        resolve();
+      });
+    });
   }
 
   guardarNuevoIngreso(ingreso: Ingreso){
-    const ingresoObj = {
-      nombre: ingreso.nombre,
-      apellido: ingreso.apellido,
-      genero: ingreso.genero,
-      area: ingreso.area,
-      jornada: ingreso.jornada,
-      comentarios: ingreso.comentarios,
-      fecha_creado: new Date()
-    };
-    return this.ingresosCollection.add(ingresoObj);
+ //   const ingresoObj = {
+  //    nombre: ingreso.nombre,
+  //    apellido: ingreso.apellido,
+  //    genero: ingreso.genero,
+  //    area: ingreso.area,
+ //     jornada: ingreso.jornada,
+  //    comentarios: ingreso.comentarios,
+  //  fecha_creado: new Date()
+  //  };
+
+
+     
+    return this.http.post('https://usuarios-235c9.firebaseio.com/ingresos.json',ingreso)
+
+   // return this.ingresosCollection.add(ingresoObj);
   }
 
   guardarIngresoTemp(ingreso: Ingreso){

@@ -18,7 +18,7 @@ export class InstalacionesComponent implements OnInit {
 
   ingresos: Ingreso[] = [];
 
-  constructor(private monitoreoService: MonitoreoService) { }
+  constructor(public monitoreoService: MonitoreoService) { }
 
   public nuevoIngreso = new FormGroup({
     nombre   : new FormControl('', Validators.required),
@@ -43,6 +43,7 @@ export class InstalacionesComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500
     })
+    
   }
 
   obtenerIngresos(){
